@@ -4,7 +4,9 @@ var contextMenuItem = {
     "contexts": ["selection"]
 }
 var bkr=chrome.extension.getBackgroundPage()
+xmlhttp.onreadystatechange = function(){
 
+}
 chrome.contextMenus.create(contextMenuItem);
 
 chrome.contextMenus.onClicked.addListener(function(targetWord){
