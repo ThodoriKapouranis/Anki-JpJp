@@ -1,21 +1,39 @@
 {
     "name": "Anki Jp<-->Jp Cards",
-    "version": "Initial Commit",
+    "version": "1.0",
     "description": "Submit vocab word to Anki with Weblio JP & Pitch, Jisho EN, and example sentence",
-    "manifest_version": "1.0",
+    "manifest_version": 2,
+
+    "icons": {
+        "16": "images/icon.png",
+        "32": "images/icon.png",
+        "48": "images/icon.png",
+        "128": "images/icon.png"
+    },
 
     "background": {
         "scripts": ["background.js"],
         "persistent": false
       },
+    
 
-    "permissions": ["storage"],
+    "permissions": [
+        "storage",
+        "contextMenus",
+        "notifications",
+        "activeTab"],
 
-    "default_icon": {
-        "16": "images/icon.png",
-        "32": "images/icon.png",
-        "48": "images/icon.png",
-        "128": "images/icon.png"
-      }
+
+
+    "browser_action":{
+        "default_popup":"popup.html",
+        "default_icon": {
+            "16": "images/icon.png",
+            "32": "images/icon.png",
+            "48": "images/icon.png",
+            "128": "images/icon.png"
+        }    
+    }
+
 }
 
