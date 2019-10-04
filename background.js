@@ -28,7 +28,7 @@ chrome.contextMenus.onClicked.addListener(function(targetWord){
             let doc = parser.parseFromString(data, "text/html");
             let def = doc.getElementsByClassName("NetDicBody")[0];
             let acc = doc.getElementsByClassName("midashigo")[0];
-
+            
             if (def==undefined){
                 console.log("ERROR WITH DEFINITION, NetDicBody")
                 console.log(doc);
@@ -36,6 +36,7 @@ chrome.contextMenus.onClicked.addListener(function(targetWord){
 
             console.log(def);
             console.log("Word: "+word)
+            document.getElementById("Word").innerHTML=word
             console.log("Definition: "+ formatDefinition(def.innerText))
             console.log("Pitch accent: "+acc.innerText);
 
@@ -45,4 +46,3 @@ chrome.contextMenus.onClicked.addListener(function(targetWord){
             
     }
 })
-

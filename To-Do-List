@@ -1,8 +1,3 @@
-- Make pitch accent work 100% of time
-
-- Filter the definitions to add new line at
-each new definitions
-
 - Add quick popup UI to show current selection
     - Add manual example sentence addition
 
@@ -10,6 +5,7 @@ each new definitions
     manually modify things and those will be the 
     ones to get sent out to Anki
 
+- Multiple types of definition formatting, cause number organization screws up
 
 - Figure out how Anki stores their cards
 
