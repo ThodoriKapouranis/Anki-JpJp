@@ -40,6 +40,7 @@ chrome.contextMenus.onClicked.addListener(function(targetWord){
                 console.log("Pitch Accent: "+doc.getElementsByClassName('midashigo')[0].childNodes[4].innerText)
             }
 
+            /*To get pitch accent we can do something really stupid and go through every thing under midashigo class and check if style="margin:0.1em" lol */
             )
             .catch(function(err){
                 console.log('FETCH ERROR:', err);
