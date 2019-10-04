@@ -5,47 +5,43 @@ var contextMenuItem = {
 }
 chrome.contextMenus.create(contextMenuItem);
 
+function formatDefinition(string){
+    let detect=['①','②','③','④','⑤','⑥','⑦','⑧','⑨'];
+    let initial=0;
+    var newString=string
+    for(i=0;i<detect.length;i++){
+        newString = newString.replace(detect[i], "\n\n"+detect[i]);
+    }
+
+    return newString;
+}
 
 chrome.contextMenus.onClicked.addListener(function(targetWord){
     if (targetWord.menuItemId =="sendToAnki"){
         console.log("Highlighted Word: "+targetWord.selectionText)
-//no-cors cause weblio doesn't allow basic/cor
-        fetch("https://www.weblio.jp/content/+"+targetWord.selectionText, {mode: "cors"})
-            .then(
-                function(response){
-                   // console.log(response.status);
-                   // console.log(response.statusText);
-                   // console.log(response.type);
-                   // console.log(response.url);
-                    //200 response means GOOD, strange
-                    if (response.status !== 200){
-                        console.log("Error code: "+ response.status);
-                        return;
-                    }
-                    
-                    return response.text();
-                }
-            )
 
-            // note that the return of last .then() is the parameter here
-            .then(function(html){
-                var parser = new DOMParser();
-                var doc = parser.parseFromString(html,"text/html");
-                var def = doc.getElementsByClassName("NetDicBody")[0]
-              /*  var defContainer = def.childNodes[1]
-                console.log("Type: "+defContainer.childNodes[0].wholeText + defContainer.childNodes[1].innerText)
-                defContainer.removeChild(defContainer.childNodes[0]);
-                defContainer.removeChild(defContainer.childNodes[0]);*/
-                console.log("Definition: "+def.innerText)
-                console.log("Pitch Accent: "+doc.getElementsByClassName('midashigo')[0].childNodes[4].innerText)
+        async function getWordInfo(word){
+            let response = await fetch("https://www.weblio.jp/content/+"+word)
+            let data = await response.text();
+            let parser = new DOMParser();
+
+            let doc = parser.parseFromString(data, "text/html");
+            let def = doc.getElementsByClassName("NetDicBody")[0];
+            let acc = doc.getElementsByClassName("midashigo")[0];
+
+            if (def==undefined){
+                console.log("ERROR WITH DEFINITION, NetDicBody")
+                console.log(doc);
             }
 
-            )
-            .catch(function(err){
-                console.log('FETCH ERROR:', err);
-            })
+            console.log(def);
+            console.log("Word: "+word)
+            console.log("Definition: "+ formatDefinition(def.innerText))
+            console.log("Pitch accent: "+acc.innerText);
 
+        }
 
+        getWordInfo(targetWord.selectionText);
             
     }
 })
