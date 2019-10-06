@@ -1,5 +1,5 @@
 body{
-    width:300px;
+    width:350px;
     height:500px;
 }
 /* width */
@@ -7,20 +7,20 @@ body{
     width: 10px;
   }
   
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: #f0eeee;
-  }
-  
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: rgb(61, 172, 247);
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #555;
-  }
+/* Track */
+::-webkit-scrollbar-track {
+background: #f0eeee;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+background: rgb(61, 172, 247);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+background: #555;
+}
   
 .header{
     color:black;
@@ -37,21 +37,26 @@ body{
     min-width:100%;
     min-height:50px;
 }
+.fieldContainer *::-webkit-scrollbar-thumb{
+    border-radius:10px;
+}
 .fieldContainer h3{
     margin:0px;
 }
 
 .fieldContainer textarea{
     width:95%;
-    max-width: 95%;
+    min-width: 95%;
+    max-width:95%;
     min-height:25px;
     padding:2.5%;
+    font-size:14px;
     border:1px rgb(61, 172, 247);
     border-radius:10px;
     border-style:solid;
 }
 .definition{
-    min-height:75px!important;
+    min-height:150px!important;
 }
 .fieldContainer textarea:focus{
     outline:none;
@@ -80,10 +85,13 @@ body{
     border-radius: 10px;
 }
 
-.right:hover{
-    background-color:rgb(169, 220, 253);
+.send:hover{
+    background-color:rgb(169, 253, 180);
 }
 
-.left:hover{
+.option:hover{
     background-color:rgb(202, 206, 209)
+}
+.retry:hover{
+    background-color: rgb(185, 250, 255)
 }

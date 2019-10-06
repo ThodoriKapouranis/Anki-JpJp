@@ -1,16 +1,4 @@
-- Add quick popup UI to show current selection
-    - Add manual example sentence addition
+-Implement manual search instead of rightclick
+-Implement error cases when word not found
 
-    - User is the final judge of content, they can
-    manually modify things and those will be the 
-    ones to get sent out to Anki
-
-- Multiple types of definition formatting, cause number organization screws up
-
-- Figure out how Anki stores their cards
-
-- Make a card template for these cards specifically
-
-
-*** Figure out how to add cards to Anki
-^^Most important, end goal
+-Figure out how to send this stuff to Anki 
